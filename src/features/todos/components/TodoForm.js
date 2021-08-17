@@ -18,12 +18,12 @@ function TodoForm(){
 
     return(
         <div>
-            <input 
+            <input className="myInput"
             type="text" 
             placeholder="Input a new todo" 
             value={text} 
             onChange={changeHandler}/>
-            <button onClick={handleAdd}>Add</button>
+            <button className="addButton" onClick={handleAdd}><span>Add</span></button>
         </div>
 
     );
