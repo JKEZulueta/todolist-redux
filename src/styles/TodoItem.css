@@ -1,0 +1,7 @@
+.TodoItem-todo{
+    
+}
+
+.TodoItem-todo.done{
+    text-decoration: line-through;
+}

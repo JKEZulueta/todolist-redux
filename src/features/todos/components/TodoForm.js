@@ -8,12 +8,12 @@ function TodoForm(){
 
     function changeHandler(event){
         setText(event.target.value);
-        console.log(event.target.value);
+        //console.log(event.target.value);
     }
 
     function handleAdd(){
         dispatch(AddTodo(text));
-        console.log("handleAdd: ", text);
+        //console.log("handleAdd: ", text);
     }
 
     return(

@@ -25,14 +25,22 @@ const todoSlice = createSlice({
             });
             // console.log("Add Todo: ", action);
             // return state;
+        },
+        ToggleTodo(state, action){
+            {
+                const todo = state.entities[action.payload];
+                todo.done = !todo.done;
+            };
+            // console.log("Add Todo: ", action);
+            // return state;
         }
     },
+    
 });
 
-export const { AddTodo } = todoSlice.actions;
+export const { AddTodo, ToggleTodo } = todoSlice.actions;
 
 export const{ selectIds: selectToDoIds, selectById: selectTodoById } = todosAdapter.getSelectors
 ((state) => state.todoList);
 
 export default todoSlice.reducer;
-
