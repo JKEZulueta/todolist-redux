@@ -31,9 +31,11 @@ const todoSlice = createSlice({
                 const todo = state.entities[action.payload];
                 todo.done = !todo.done;
             };
-            // console.log("Add Todo: ", action);
-            // return state;
-        }
+        },
+        DeleteFromState(state, action)
+            {
+                todosAdapter.removeOne(state, action.payload)
+            }
     },
     
 });
