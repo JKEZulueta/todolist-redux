@@ -1,5 +1,7 @@
 .TodoItem-todo{
-    
+    border: 2px springgreen;
+    border-radius:  5px;
+    padding: 10px;
 }
 
 .TodoItem-todo.done{

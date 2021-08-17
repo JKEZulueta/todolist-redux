@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectTodoById, ToggleTodo } from '../../../todoSlice';
+import { selectTodoById, ToggleTodo, DeleteFromState } from '../../../todoSlice';
 import "../../../styles/TodoItem.css"
 
 
@@ -15,11 +15,17 @@ function TodoItem(props){
         dispatch(ToggleTodo(props.id));
     }
 
+    function deleteTask(err){
+        err.stopPropagation();
+        dispatch(DeleteFromState(props.id));
+    }
+
 
     var todoStatus = todo.done ? "done" : "";
     return(
         <div className={`TodoItem-todo ${todoStatus}`} onClick={handleClick}>
             {todo.text}
+            <button type="button" onClick={deleteTask}>X</button>
         </div>
 
     );

@@ -40,7 +40,7 @@ const todoSlice = createSlice({
     
 });
 
-export const { AddTodo, ToggleTodo } = todoSlice.actions;
+export const { AddTodo, ToggleTodo, DeleteFromState } = todoSlice.actions;
 
 export const{ selectIds: selectToDoIds, selectById: selectTodoById } = todosAdapter.getSelectors
 ((state) => state.todoList);
