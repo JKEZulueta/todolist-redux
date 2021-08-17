@@ -1,7 +1,5 @@
 import React from "react";
 import TodoItem from "./TodoItem";
-import {initialTodoList} from "../../../constants/constants";
-import {getAllToDoIds} from "../../../utils/utils";
 import {selectToDoIds} from "../../../todoSlice";
 import { useSelector } from "react-redux";
 
@@ -12,13 +10,11 @@ function TodoGroup(){
 
     return(
         <div>
-            <span>To Do Group: </span>
             {
                 todoIds.map((id) =>  (
-                <TodoItem key={id} itemId={id}/>
+                <TodoItem key={id} id={id}/>
                     ))
             }
-        <TodoItem/>
         </div>
     );
 

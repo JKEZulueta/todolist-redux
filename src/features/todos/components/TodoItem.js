@@ -1,13 +1,17 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { initialTodoList } from '../../../constants/constants';
-import { selectToDoIds } from '../../../todoSlice';
-import { getTodoById } from '../../../utils/utils';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectTodoById } from '../../../todoSlice';
+
+
 
 
 function TodoItem(props){
 
-    const todo = useSelector(state => selectToDoIds(state, props.itemId));
+    const dispatch = useDispatch();
+    const { id } = props;
+
+    const todo = useSelector(state => selectTodoById(state, id));
+
 
     return(
         <div>

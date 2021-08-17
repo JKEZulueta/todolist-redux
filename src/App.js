@@ -1,5 +1,4 @@
 import './App.css';
-import ToDoGroup from './features/todos/components/TodoGroup';
 import Todolist from './features/todos/components/TodoList';
 
 function App() {
