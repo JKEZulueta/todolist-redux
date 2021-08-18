@@ -29,7 +29,7 @@ const todoSlice = createSlice({
         },
         DeleteFromState(state, action)
             {
-                todosAdapter.removeOne(state, action.payload);//deletefromState: 
+                todosAdapter.removeOne(state, action.payload.id);//deletefromState: 
             },
         AddTodos(state, action)
             {

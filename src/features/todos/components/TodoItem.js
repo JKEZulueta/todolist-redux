@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectTodoById, ToggleTodo, DeleteFromState } from '../../../todoSlice';
 import "../../../styles/TodoItem.css"
-import { updateTodo } from '../../apis/todos';
+import { deleteTodo, updateTodo } from '../../apis/todos';
 
 function TodoItem(props){
     const dispatch = useDispatch();
@@ -16,8 +16,11 @@ function TodoItem(props){
     }
 
     function deleteTask(err){
-        err.stopPropagation();
-        dispatch(DeleteFromState(props.id));
+        deleteTodo(props.id).then((response)=>  {
+            err.stopPropagation();
+            dispatch(DeleteFromState(response.data));
+        })
+        
     }
 
 
