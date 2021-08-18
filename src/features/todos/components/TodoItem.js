@@ -2,17 +2,17 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectTodoById, ToggleTodo, DeleteFromState } from '../../../todoSlice';
 import "../../../styles/TodoItem.css"
-
-
-
+import { updateTodo } from '../../apis/todos';
 
 function TodoItem(props){
     const dispatch = useDispatch();
-    const { id } = props;
-    const todo = useSelector(state => selectTodoById(state, id));
+    // const { id } = props;
+    const todo = useSelector(state => selectTodoById(state, props.id));
 
-    function handleClick(){
-        dispatch(ToggleTodo(props.id));
+    function handleClick() {
+        updateTodo(props.id, {done: !todo.done}).then((response) => {
+            dispatch(ToggleTodo({id:props.id, updateTodo:response.data}));
+        })
     }
 
     function deleteTask(err){
@@ -21,7 +21,7 @@ function TodoItem(props){
     }
 
 
-    var todoStatus = todo.done ? "done" : "";
+    let todoStatus = todo.done ? "done" : "";
     
     return(
         
@@ -33,6 +33,6 @@ function TodoItem(props){
         </div>
 
     );
-}
+};
 
 export default TodoItem;
