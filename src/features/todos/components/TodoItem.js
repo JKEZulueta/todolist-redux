@@ -22,10 +22,14 @@ function TodoItem(props){
 
 
     var todoStatus = todo.done ? "done" : "";
+    
     return(
+        
         <div className={`TodoItem-todo ${todoStatus}`} onClick={handleClick}>
-            <h2>{todo.text}</h2>
-            <button className="delButton" type="button" onClick={deleteTask}><span>Delete</span></button>
+            
+            {todo.text}
+            <button className="delButton" type="button" onClick={deleteTask}><span className="toDelete">X</span></button>
+            
         </div>
 
     );

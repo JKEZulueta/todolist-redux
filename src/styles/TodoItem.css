@@ -1,9 +1,10 @@
 .TodoItem-todo{
     margin: auto;
-    border: 2px solid rgb(115, 139, 127);
+    border: 1px solid rgb(115, 139, 127);
     border-radius:  5px;
-    padding: 10px;
-    width: 20%;
+    padding: 15px;
+    width: 35%;
+    
 }
 
 .TodoItem-todo.done{
@@ -11,17 +12,18 @@
 }
 
 .addButton{
-    border-radius: 1px;
+  border-radius: px;
   background-color: #6de69b;
   border: none;
   color: #FFFFFF;
   text-align: center;
   font-size: 28px;
-  padding: 10px;
-  width: 150px;
+  padding: 4px;
+  width: 125px;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 5px;
+  margin: 8px;
+  border-radius: 4px;
 }
 
 .addButton span {
@@ -53,7 +55,7 @@
   width: 25%;
   background-color: #a17d7d2a;
   color: rgb(0, 0, 0);
-  padding: 14px 20px;
+  padding: 12px 20px;
   margin: 8px 0;
   border: none;
   border-radius: 4px;
@@ -62,37 +64,11 @@
 }
 
 .delButton {
-    position: relative;
-  background-color: #970303;
-  border: none;
-  font-size: 28px;
-  color: #FFFFFF;
-  padding: 5px;
-  width: 120px;
-  text-align: center;
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
-  text-decoration: none;
-  overflow: hidden;
-  cursor: pointer;
+  color: white;
+  border-radius: 4px;
+  background-color: tomato;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  margin: auto;
+  float: right;
   }
 
-  .delButton:after {
-    content: "";
-    background: #90EE90;
-    display: block;
-    position: absolute;
-    padding-top: 300%;
-    padding-left: 350%;
-    margin-left: -20px!important;
-    margin-top: -120%;
-    opacity: 0;
-    transition: all 0.8s
-  }
-  
-  .delButton:active:after {
-    padding: 0;
-    margin: 0;
-    opacity: 1;
-    transition: 0s
-  }
