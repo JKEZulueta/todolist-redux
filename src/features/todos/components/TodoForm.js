@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { AddTodo } from "../../../todoSlice";
+import { addTodo } from "../../apis/todos";
 
 function TodoForm(){
     const [text, setText] = useState('');
@@ -12,8 +13,11 @@ function TodoForm(){
     }
 
     function handleAdd(){
-        dispatch(AddTodo(text));
-        //console.log("handleAdd: ", text);
+        addTodo(text).then((response) => {
+            dispatch(AddTodo(response.data));
+        });
+        
+        setText("");
     }
 
     return(

@@ -18,11 +18,7 @@ const todoSlice = createSlice({
     initialState,
     reducers: {
         AddTodo(state, action){
-            todosAdapter.addOne(state, {
-                id: uuid(),
-                text: action.payload,
-                done: false,
-            });
+            todosAdapter.addOne(state, action.payload);
             // console.log("Add Todo: ", action);
             // return state;
         },
@@ -36,7 +32,7 @@ const todoSlice = createSlice({
             {
                 todosAdapter.removeOne(state, action.payload);//deletefromState: 
             },
-            AddTodos(state, action)
+        AddTodos(state, action)
             {
                 todosAdapter.addMany(state, action.payload);
             }
