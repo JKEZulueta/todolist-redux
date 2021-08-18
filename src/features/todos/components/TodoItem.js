@@ -29,12 +29,12 @@ function TodoItem(props){
     return(
         
         <div className={`TodoItem-todo ${todoStatus}`} onClick={handleClick}>
-            
-            {todo.text}
             <button className="delButton" type="button" onClick={deleteTask}><span className="toDelete">X</span></button>
-            
-        </div>
-
+            <i class="pin"></i>
+            <blockquote className="note yellow">
+            {todo.text} <cite class="author">- Kyle</cite>
+            </blockquote>
+            </div>
     );
 };
 
