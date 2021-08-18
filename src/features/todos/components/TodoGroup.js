@@ -1,19 +1,17 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { selectToDoIds } from "../../../todoSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { AddTodos, selectToDoIds } from "../../../todoSlice";
 import TodoItem from "./TodoItem";
-import { useEffect } from "react";
 import { getTodos } from "../../apis/todos";
 
 //function to const
 function TodoGroup () {
     const todoIds = useSelector(selectToDoIds);
+    const dispatch = useDispatch();
 
-    useEffect(() => {
         getTodos().then((response) => {
-            console.log("response: ", response.data);
+            dispatch(AddTodos(response.data))
         })
-    }, [])
 
     return(
         <React.Fragment>

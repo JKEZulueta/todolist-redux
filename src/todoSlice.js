@@ -35,12 +35,17 @@ const todoSlice = createSlice({
         DeleteFromState(state, action)
             {
                 todosAdapter.removeOne(state, action.payload);//deletefromState: 
+            },
+            AddTodos(state, action)
+            {
+                todosAdapter.addMany(state, action.payload);
             }
-    },
+        },
+        
     
 });
 
-export const { AddTodo, ToggleTodo, DeleteFromState } = todoSlice.actions;
+export const { AddTodo, ToggleTodo, DeleteFromState, AddTodos } = todoSlice.actions;
 
 export const{ selectAll: selectTodos,selectIds: selectToDoIds, selectById: selectTodoById } = todosAdapter.getSelectors
 ((state) => state.todoList);
