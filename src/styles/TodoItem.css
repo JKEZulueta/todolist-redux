@@ -48,8 +48,8 @@
   width: 125px;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 8px;
-  border-radius: 4px;
+  
+  border-radius: 10px;
 }
 
 .addButton span {
@@ -82,9 +82,9 @@
   background-color: #a17d7d2a;
   color: rgb(0, 0, 0);
   padding: 12px 20px;
-  margin: 8px 0;
+
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
   
 }

@@ -4,7 +4,8 @@ import TodoList from './features/todos/components/TodoList';
 import React from 'react';
 import NotFoundPage from './features/notfound/NotFoundPage';
 import DoneListContainer from './features/todos/components/DoneListContainer';
-import { Breadcrumb, Alert } from 'antd';
+import { PlusSquareOutlined, CheckSquareOutlined } from '@ant-design/icons';
+import { Menu } from 'antd';
 
 
 function App() {
@@ -15,11 +16,14 @@ function App() {
   return (
     <React.Fragment>
       <BrowserRouter>
-      <ul className="app-list">
-        <li><Link to="/">Add to List</Link></li>
-        <li><Link to="/done">Finished List</Link></li>
-      </ul>
+
+      <Menu mode="horizontal">
+
+      <Menu.Item icon={<PlusSquareOutlined />}><Link to="/">Add to List</Link></Menu.Item>
+      <Link to="/done">Finished List</Link>
       
+
+      </Menu>
       <Switch>
         <Route exact path="/" component={TodoList}></Route>
         <Route exact path="/done" component={DoneListContainer}></Route>
