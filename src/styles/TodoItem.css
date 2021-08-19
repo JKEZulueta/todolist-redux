@@ -1,9 +1,9 @@
 .TodoItem-todo{
     margin: auto;
-    border-radius:  5px;
-    padding: 15px;
+    padding: 5px;
     width: 25%;
     float: left;
+    
     
 }
 
@@ -90,11 +90,20 @@
 }
 
 .delButton {
-  color: white;
+  color: rgb(0, 0, 0);
   border-radius: 4px;
-  background-color: tomato;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   margin: auto;
   float: right;
   top: 100px;
+  padding-left: 5px;
   }
+
+.editButton{
+  float: right;
+}
+
+.edit{
+  
+  display: none;
+}
