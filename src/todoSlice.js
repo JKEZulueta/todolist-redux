@@ -34,13 +34,21 @@ const todoSlice = createSlice({
         AddTodos(state, action)
             {
                 todosAdapter.addMany(state, action.payload);
+            },
+            setText(state, action)
+            {
+                todosAdapter.updateOne(state, {
+                    text: action.payload.text,
+                    changes: action.payload.editText
+                });
             }
         },
+        
         
     
 });
 
-export const { AddTodo, ToggleTodo, DeleteFromState, AddTodos } = todoSlice.actions;
+export const { AddTodo, ToggleTodo, DeleteFromState, AddTodos, setText } = todoSlice.actions;
 
 export const{ selectAll: selectTodos,selectIds: selectToDoIds, selectById: selectTodoById } = todosAdapter.getSelectors
 ((state) => state.todoList);
