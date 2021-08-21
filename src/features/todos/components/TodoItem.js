@@ -1,25 +1,22 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectTodoById, ToggleTodo, DeleteFromState, setText } from '../../../todoSlice';
+import { selectTodoById, ToggleTodo, DeleteFromState } from '../../../todoSlice';
 import "../../../styles/TodoItem.css"
 import { deleteTodo, updateTodo } from '../../apis/todos';
-import { Modal } from 'antd';
+import { Input, Modal } from 'antd';
+import TextArea from 'antd/lib/input/TextArea';
 
 function TodoItem(props){
+    const [modifyText ,setText] = useState("");
     const dispatch = useDispatch();
     const [isModalVisible, setIsModalVisible] = useState(false);
+    const { TextArea } = Input;
     // const { id } = props;
     const todo = useSelector(state => selectTodoById(state, props.id));
 
     function handleClick() {
         updateTodo(props.id, {done: !todo.done}).then((response) => {
             dispatch(ToggleTodo({id:props.id, updateTodo:response.data}));
-        })
-    }
-
-    function updateClick(){
-        updateTodo(props.id).then((response) => {
-            dispatch(setText({text:props.text, updateTodo:response.data}))
         })
     }
 
@@ -36,8 +33,19 @@ function TodoItem(props){
     };
 
     const handleOk = () => {
+        if(modifyText === ''){
+            setIsModalVisible(false);
+        } else{
+        updateTodo(props.id, {text:modifyText}).then((response) => {
+
+            dispatch(ToggleTodo({id:props.id, updateTodo:response.data}))
+        })
         setIsModalVisible(false);
-    };
+    }
+};
+    function changeHandle(modify){
+        setText(modify.target.value);
+    }
     
     const handleCancel = () => {
         setIsModalVisible(false);
@@ -50,8 +58,8 @@ function TodoItem(props){
         <React.Fragment>
             
             
-            <Modal title="Edit Todo" visible={isModalVisible} onOk={updateClick} onCancel={handleCancel}>
-            <input type="text" defaultValue={todo.text} ></input>
+            <Modal title="Edit Todo" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+            <TextArea  defaultValue={todo.text} onChange={changeHandle}/>
             </Modal>
             
         <div className={`TodoItem-todo`}>
